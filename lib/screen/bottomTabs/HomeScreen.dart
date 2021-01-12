@@ -133,7 +133,9 @@ class HomeScreenState extends BaseState<HomeScreen> {
 
   Widget _itemBuilder(BuildContext context, int index) {
     final item = _details[index];
-    Widget imgWidget = Image(image: CachedNetworkImageProvider(item.urlToImage));
+  Widget imgWidget = item.urlToImage != null
+        ? Image(image: CachedNetworkImageProvider(item.urlToImage))
+        : Container();
     Widget nameWidget = Text(
       item.title,
       style: TextStyle(
